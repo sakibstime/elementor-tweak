@@ -1,0 +1,71 @@
+@media (max-width:1024px){
+	
+
+  /* ===== Mobile menu slides from LEFT ===== */
+  .elementor-nav-menu--dropdown {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100vh;
+    background: #000; /* main panel background (dark for contrast) */
+    box-shadow: 2px 0 24px rgba(0,0,0,0.15);
+    overflow-y: auto;
+    transform: translateX(-100%) !important;
+    transition: transform 0.35s ease-in-out !important;
+    z-index: 9999;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  /* ===== Show menu when hamburger is active ===== */
+  .elementor-menu-toggle.elementor-active + .elementor-nav-menu--dropdown {
+    transform: translateX(0) !important;
+  }
+
+  /* ===== Remove Elementor’s top slide animation ===== */
+  .elementor-nav-menu--dropdown.elementor-nav-menu__container {
+    top: 0 !important;
+  }
+
+  /* ===== Dimmed overlay behind menu ===== */
+  .elementor-menu-toggle.elementor-active::after {
+    content: "";
+    position: fixed;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background: rgba(0,0,0,0.35);
+    z-index: 9998;
+  }
+
+  /* ===== Turn hamburger into × icon ===== */
+  .elementor-menu-toggle.elementor-active i:before {
+    content: "\00d7";
+    font-size: 32px;
+    color: #fff;
+    line-height: 1;
+  }
+
+  /* ===== Menu item base style ===== */
+  .elementor-nav-menu--dropdown .elementor-item {
+    display: block;
+    padding: 14px 20px;
+    color: #fff !important; /* text color white */
+    background: transparent;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  /* ===== Hover and active background color ===== */
+  .elementor-nav-menu--dropdown .elementor-item:hover,
+  .elementor-nav-menu--dropdown .elementor-item.elementor-item-active,
+  .elementor-nav-menu--dropdown .elementor-item.highlighted {
+    background-color: #352F27 !important;
+    color: #fff !important; /* keep text white */
+  }
+
+  .site-header { overflow: visible; }
+}
+
+/* ===== Prevent background scroll when menu open ===== */
+html.elementor-html--overflow-hidden {
+  overflow: hidden;
+}
